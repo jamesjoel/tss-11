@@ -1,0 +1,10 @@
+body{
+   
+}
+.box{
+    height: 300px;
+    width: 300px;
+    background-color: #1082da;
+    border-radius: 100px 0px 100px 0px;
+    /*             t   r  b  l*/
+}

@@ -1,0 +1,27 @@
+body{
+    background-color: #CDCD40;
+    font-family: Helvetica;
+}
+.box{
+    height: 400px;
+    width: 400px;
+    background-color: #203cc8;
+
+    color : #fff;
+    font-size: 18px;
+
+
+    
+}
+
+.abc{
+    font-weight: bold;
+    background-color: #000;
+    color: red;
+    font-style: italic;
+}
+.xyz{
+    background-color: #c82055;
+    text-transform: uppercase;
+    font-size: 12px;
+}

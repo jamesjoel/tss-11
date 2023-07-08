@@ -1,0 +1,17 @@
+body{
+    font-family: Helvetica;
+}
+.box{
+    background-color: #640540;
+    height: 200px;
+    width: 200px;
+    transition: 2s;
+}
+.box:hover{
+    transform: rotate(360deg);
+    height: 400px;
+    width: 400px;
+    background-color: #0bac96;
+    box-shadow: 20px 20px 20px red;
+
+}

@@ -1,0 +1,13 @@
+body{
+    background-color: #70ACD1;
+}
+.box{
+    height: 300px;
+    width: 300px;
+    background-color: #1082da;
+    border-top : 20px solid red;
+    border-bottom : 20px solid red;
+    border-left : 20px solid blue;
+    border-right : 20px solid blue;
+    /*            solid, dotted, dashed, double   */
+}

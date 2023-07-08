@@ -1,0 +1,13 @@
+body{
+    font-family: Helvetica;
+}
+.image{
+    height: 200px;
+    width: 200px;
+    transition: .5s;
+}
+.image:hover{
+    height: 400px;
+    width: 400px;
+    box-shadow: 10px 10px 10px #000;
+}

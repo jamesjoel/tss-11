@@ -1,0 +1,30 @@
+.box1{
+    background-color: red;
+    height: 180px;
+    width: 180px;
+    float: left;   
+    margin: 10px;
+    /* margin-right: 50px;
+    margin-top: 50px;
+    margin-left: 50px;
+    margin-bottom: 50px; */
+    /* margin : 100px;  */
+    /* all side */
+
+    /* margin: 10px 25px; */
+    /*      t/b   l/r  */
+    /* margin : 5px 25px 10px 30px; */
+    /*        t  r     b    l       */
+}
+.box2{
+    float: left;
+    text-align: justify;
+    background-color: pink;
+    
+    width: 200px;
+    padding: 20px;
+}
+
+
+/* outside gap of a box ---- margin  */
+/* inside gap of a box ---- padding  */

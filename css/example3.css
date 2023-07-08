@@ -1,0 +1,13 @@
+body{
+    background-color: #3f3e3e;
+}
+.box{
+    height: 500px;
+    width: 500px;
+    background-color: red;
+    background-image: url("1.jpg");
+    background-repeat: no-repeat;
+    background-position: -100px -100px;
+    /*                    l    t   */
+    
+}

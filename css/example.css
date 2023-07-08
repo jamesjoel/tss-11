@@ -1,0 +1,22 @@
+body{
+    background-color: #70CAD1;
+}
+.box{
+    height: 300px;
+    width: 300px;
+    background-color: #c92610;
+    
+    /* text-align: justify; */
+    /* left, right, center, justify */
+
+    /* text-decoration: line-through; */
+    /*                  underline, overline, line-through*/
+
+    /* text-transform: capitalize; */
+    /*              uppercase, lowercase, capitalize*/
+
+    /* text-indent: 80px; */
+    /* line-height: 30px; */
+    /* word-spacing: 10px; */
+    /* letter-spacing: 5px; */
+}

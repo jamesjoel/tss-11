@@ -1,0 +1,14 @@
+body{
+    background-color: #373636;
+}
+.box1{
+    height: 50px;
+    width: 50px;
+    background-color: green;
+    background-image: url("10.jpg");
+    background-position: -100px -50px;
+}
+.box1:hover{
+    background-position: -260px -105px;
+    
+}
