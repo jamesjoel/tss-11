@@ -1,4 +1,2 @@
-console.log("my name is james joel");
-console.log("hello world");
-console.log("The Stepping Stone");
-
+let name = "Rohit";
+console.log("Your Name = ", name);
