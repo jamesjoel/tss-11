@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "date-format": "^4.0.14",
+    "date-format-ms": "^1.2.1",
+    "reverse-string": "^0.0.6",
+    "word-count": "^0.2.2"
+  }
+}
