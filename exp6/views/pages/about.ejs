@@ -1,0 +1,63 @@
+<%- include("../includes/header"); %>
+<%- include("../includes/nav"); %>
+<div class="container my-4" style="min-height: 650px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form action="/employee/add" method="post">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Add New Employee</h4>
+                </div>
+                <div class="card-body">
+                    <div class="mb-3">
+                        <label for="">Full Name</label>
+                        <input type="text" name="fullname" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Salary</label>
+                        <input type="text" name="salary" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Department</label>
+                        <select class="form-control" name="department">
+                            <option>Select</option>
+                            <option>H.R.</option>
+                            <option>Execitive</option>
+                            <option>IT</option>
+                            <option>Management</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Gender</label>
+                        <br />
+                        Male<input type="radio" name="gender" value="male"/>
+                        Female<input type="radio" name="gender" value="female"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">Address</label>
+                        <textarea class="form-control" name="address"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="">City</label>
+                        <select class="form-control" name="city">
+                            <option>Select</option>
+                            <option>Indore</option>
+                            <option>Mumbai</option>
+                            <option>Pune</option>
+                            <option>Delhi</option>
+                            <option>Bhopal</option>
+                            
+                        </select>
+                    </div>
+                    
+                </div>
+                <div class="card-footer">
+                    <input type="submit" value="Save" class="btn btn-success" />
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../includes/footer"); %>
+        

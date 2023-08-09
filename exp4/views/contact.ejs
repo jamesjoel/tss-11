@@ -1,0 +1,38 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: #BBCC70;
+            }
+        </style>
+    </head>
+    <body>
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/help">Help</a>
+        <h1>Contact Page</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus autem illo perferendis vel vero porro sapiente animi odio nisi! Possimus vero similique culpa quisquam quaerat autem enim omnis, nesciunt maxime?</p>
+
+        <br />
+        <table border="1" align="center" width="600">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>City</th>
+            </tr>
+            <% users.forEach((value)=>{ %>
+                <tr>
+                    <td><%= value.name %></td>
+                    <td><%= value.age %></td>
+                    <td><%= value.city %></td>
+                </tr>
+
+            <% }) %>
+
+
+        </table>
+
+
+    </body>
+</html>

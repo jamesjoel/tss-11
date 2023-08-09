@@ -1,0 +1,29 @@
+<%- include("../includes/header"); %>
+<%- include("../includes/nav"); %>
+<div class="container my-4" style="min-height: 650px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h3 class="text-center">Teacher Add Page</h3>
+            <form action="/teacher/save" method="post">
+                <div class="mb-3">
+                    <label>Full Name</label>
+                    <input type="text" class="form-control" name="name"/>
+                </div>
+                <div class="mb-3">
+                    <label>Salary</label>
+                    <input type="text" class="form-control" name="salary"/>
+                </div>
+                <div class="mb-3">
+                    <label>Gender</label>
+                    <br />
+                    Male <input type="radio" value="male" name="gender"/>
+                    Female <input type="radio" value="female" name="gender"/>
+                </div>
+                <br />
+                <input type="submit" value="Add" class="btn btn-primary" />
+            </form>
+        </div>
+    </div>
+</div>
+<%- include("../includes/footer"); %>
+        
