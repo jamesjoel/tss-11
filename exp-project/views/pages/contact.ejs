@@ -3,8 +3,23 @@
 <div class="container" style="margin-top: 100px; min-height: 650px;">
     <div class="row">
         <div class="col-md-12">
-            <h4>Contact Page</h4>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur, veniam quo. Dolore, sit ipsum. Ducimus quibusdam, enim laborum quisquam quod cum incidunt magnam corporis repellendus ut itaque illum vero? Incidunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam maiores est, aliquid illum pariatur architecto delectus iste omnis excepturi, reiciendis provident consequuntur explicabo itaque cumque tempore sint impedit mollitia! Earum?</p>
+            <h4>List of All Colleges</h4>
+            <table class="table table-dark">
+                <tr>
+                    <th>S.No.</th>
+                    <th>Name of University</th>
+                    <th>Name of College</th>
+                    <th>State</th>
+                </tr>
+                <% collage_data.forEach((value, index)=>{ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= value.university %></td>
+                        <td><%= value.college %></td>
+                        <td><%= value.state %></td>
+                    </tr>
+                <% }) %>
+            </table>
         </div>
     </div>
 </div>

@@ -42,9 +42,9 @@
                                 <label>City</label>
                                 <select class="form-control" name="city">
                                     <option>Select</option>
-                                    <option>Indore</option>
-                                    <option>Mumbai</option>
-                                    <option>Pune</option>
+                                    <% city.forEach((value)=>{ %>
+                                        <option><%= value.name %></option>
+                                    <% }) %>
                                 </select>
                             </div>
                             <div class="my-3">

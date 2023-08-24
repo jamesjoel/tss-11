@@ -1,0 +1,68 @@
+<%- include("../includes/header") %>
+
+<div class="container" style="margin-top: 100px; min-height: 650px;">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Update Student</h3>
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <form action="/student/update/<%= data._id %>" method="post">
+                    <div class="card">
+                        
+                        <div class="card-header">
+                            <h5>Update</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="my-3">
+                                <label>Full Name</label>
+                                <input value="<%= data.fullname %>" type="text" name="fullname" class="form-control" />
+                            </div>
+                            <div class="my-3">
+                                <label>Class</label>
+                                <select class="form-control" name="class">
+                                    <option>Select Student Class</option>
+                                    <option <% if(data.class=="Nursery") { %> selected <% } %>>Nursery</option>
+                                    <option  <% if(data.class=="KG-I") { %> selected <% } %>>KG-I</option>
+                                    <option  <% if(data.class=="KG-II") { %> selected <% } %>>KG-II</option>
+                                    <% for(var i=1; i<=12; i++){ %>
+                                        <option  <% if(data.class==i) { %> selected <% } %>><%= i %></option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            <div class="my-3">
+                                <label>Gender</label><br />
+
+                                Male <input <% if(data.gender=="male"){ %> checked <% } %> type="radio" name="gender" value="male" />
+                                Female <input <% if(data.gender=="female") { %> checked <% } %>  type="radio" name="gender" value="female" />
+                            </div>
+                            <div class="my-3">
+                                <label>Address</label>
+                                <textarea class="form-control" name="address"><%= data.address %></textarea>
+                            </div>
+                            <div class="my-3">
+                                <label>City</label>
+                                <select class="form-control" name="city">
+                                    <option>Select</option>
+                                    <% city.forEach((value)=>{ %>
+                                        <option <% if(data.city == value.name) { %> selected <% } %> ><%= value.name %></option>
+                                    <% }) %>
+                                </select>
+                            </div>
+                            <div class="my-3">
+                                <label>Contact</label>
+                                <input type="text" value="<%= data.contact %>" name="contact" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <input type="submit" value="Update Student" class="btn btn-success" /> 
+                        </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
+
+<%- include("../includes/footer") %>
