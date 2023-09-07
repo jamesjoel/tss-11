@@ -23,7 +23,10 @@ app.get("/delete/:x", async(req, res)=>{
 
 
 app.get("/edit/:y", async (req, res)=>{
-    let m = req.params.y;
+    console.log(req.params);
+    // return;
+    let m =  req.params.y;
+    console.log(m);return;
     let result = await Emp.find({ _id : m });
     let obj = { updateemployee : result[0] };
     // let result = Emp.find({ city : "indore"});

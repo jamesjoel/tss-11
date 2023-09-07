@@ -1,0 +1,24 @@
+<%- include('../includes/header') %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Post Page</h2>
+            <table class="table table-dark">
+                <tr>
+                    <th>S.No.</th>
+                    <th>User Id</th>
+                    <th>Title</th>
+                </tr>
+                <% data.forEach((value, index)=>{ %>
+                    <tr>
+                        <td><%= index+1 %></td>
+                        <td><%= value.userId %></td>
+                        <td><%= value.title %></td>
+                    </tr>
+                <% }) %>
+
+            </table>
+        </div>
+    </div>
+</div>
