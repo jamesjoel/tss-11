@@ -1,9 +1,17 @@
-let MiniBox = (props)=>{
-    return(
-        <h3 style={{ backgroundColor : "#770FFF", width : "250px", padding : "5px" }}>
-            Contact Num : {props.con}
-        </h3>
-    )
+import React from 'react'
+
+const MiniBox = (props) => {
+    let styles = {
+        backgroundColor : "#700140",
+        height : "200px",
+        width : "200px",
+        padding : "20px"
+    }
+  return (
+    <div style={styles}>
+        MiniBox ---- <b>{ props.pqr.d }</b>
+    </div>
+  )
 }
 
-export default MiniBox;
+export default MiniBox

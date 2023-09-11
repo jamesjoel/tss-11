@@ -1,21 +1,23 @@
-import MiniBox from "./MiniBox";
-let Box = (props)=>{
+import React from 'react'
+import SmallBox from './SmallBox'
+import MiniBox from './MiniBox'
 
-    
 
-    return(
-        <div style={props.sty}>
-            <h3>Name : {props.info.name}</h3>
-            <h3>Age : { props.info.age}</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit amet, voluptatum incidunt voluptates sunt, officiis distinctio ipsam inventore obcaecati vitae voluptate quos saepe dignissimos praesentium dolor ex nostrum! Soluta, aperiam.</p>
-            <h2>City : { props.info.city }</h2>
-            
-            <h2>Gender : { props.info.gender }</h2>
-
-            <MiniBox con = {props.info.contact} />
-
-        </div>
-    )
+const Box = (props) => {
+    let styles = {
+        backgroundColor : "#CD4510",
+        width : "800px",
+        height : "500px",
+        padding : "20px"
+    }
+  return (
+    <div style={styles}>
+        Box ---- 
+        <b>{props.xyz.b}</b>
+        <SmallBox abc = {props.xyz}/>
+        <MiniBox pqr={{ d : "James"}}/>
+    </div>
+  )
 }
 
-export default Box;
+export default Box
