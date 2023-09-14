@@ -4017,7 +4017,7 @@ textarea.form-control-lg {
   list-style: none;
 }
 .navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
-  color: var(--bs-navbar-active-color);
+  color: red;
 }
 .navbar-nav .dropdown-menu {
   position: static;
