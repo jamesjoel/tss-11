@@ -9,7 +9,7 @@ const Home = () => {
             price : 1200,
             reviewCount : 9,
             image : "pro1.jpg",
-            startRanking : 2.5
+            starRanking : 2.5
         },
         {
             _id : 2,
@@ -17,7 +17,7 @@ const Home = () => {
             price : 800,
             reviewCount : 25,
             image : "pro2.jpg",
-            startRanking : 3
+            starRanking : 3
         },
         {
             _id : 3,
@@ -25,7 +25,7 @@ const Home = () => {
             price : 3000,
             reviewCount : 16,
             image : "pro3.png",
-            startRanking : 4
+            starRanking : 4
         },
         {
             _id : 4,
@@ -33,7 +33,7 @@ const Home = () => {
             price : 2200,
             reviewCount : 65,
             image : "pro4.jpg",
-            startRanking : 3.5
+            starRanking : 3.5
         },
         {
             _id : 5,
@@ -41,7 +41,7 @@ const Home = () => {
             price : 3500,
             reviewCount : 4,
             image : "pro5.jpg",
-            startRanking : 4
+            starRanking : 4
         },
         {
             _id : 6,
@@ -49,7 +49,7 @@ const Home = () => {
             price : 1400,
             reviewCount : 14,
             image : "pro6.jpg",
-            startRanking : 2.5
+            starRanking : 2.5
         }
         
     ]

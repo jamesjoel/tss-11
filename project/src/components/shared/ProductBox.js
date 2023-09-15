@@ -1,4 +1,6 @@
 import React from 'react'
+import Star from './Star'
+import HalfStar from './HalfStar'
 
 const ProductBox = (props) => {
 
@@ -8,60 +10,35 @@ const ProductBox = (props) => {
     <div className="product-item text-center border h-100 p-4">
         <img className="img-fluid mb-4" style={{height : "300px"}} src={'/assets/img/'+props.pro.image} alt=""/>
         <div className="mb-2">
-          {
-            
-          }
-          {
-            (props.pro.startRanking == 1 || Math.ceil(props.pro.startRanking)-1 == 1 )  ? <small className="fa fa-star text-primary"></small> : ''
-          }
-          {
-            (props.pro.startRanking == 2 || Math.ceil(props.pro.startRanking)-1 == 2) ? 
-              (
-                <>
-                  <small className="fa fa-star text-primary"></small>
-                  <small className="fa fa-star text-primary"></small></>
-              ) : ''
-          }
-          {
-            (props.pro.startRanking == 3 || Math.ceil(props.pro.startRanking)-1 == 3 ) ? 
-            (
-              <>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-              </>
-            ) : ''
-          }
-          {
-            (props.pro.startRanking == 4 || Math.ceil(props.pro.startRanking)-1 == 4) ? 
-            (
-              <>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-              </>
-            ) : ''
-          }
-          {
-            (props.pro.startRanking == 5 || Math.ceil(props.pro.startRanking)-1 == 5) ? 
-            (
-              <>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-                <small className="fa fa-star text-primary"></small>
-              </>
-            ) : ''
-          }
-          {
-            props.pro.startRanking % 1 != 0 ? <small className="fa fa-star-half text-primary"></small> : ''
-          }
-            
-            
-            
+            {
+              props.pro.starRanking == 1 ? <Star /> : ''
+            }
+            {
+              props.pro.starRanking == 1.5 ? <><Star /><HalfStar /></> : ''
+            }
+            {
+              props.pro.starRanking == 2 ? <><Star /><Star /></> : ''
+            }
+            {
+              props.pro.starRanking == 2.5 ? <><Star /><Star /><HalfStar /></> : ''
+            }
+            {
+              props.pro.starRanking == 3 ? <><Star /><Star /><Star /></> : ''
+            }
+            {
+              props.pro.starRanking == 3.5 ? <><Star /><Star /><Star /><HalfStar /></> : ''
+            }
+            {
+              props.pro.starRanking == 4 ? <><Star /><Star /><Star /><Star /></> : ''
+            }
+            {
+              props.pro.starRanking == 4.5 ? <><Star /><Star /><Star /><Star /><HalfStar /></> : ''
+            }
+            {
+              props.pro.starRanking == 5 ? <><Star /><Star /><Star /><Star /><Star /></> : ''
+            }
             <small>({props.pro.reviewCount})</small>
+
         </div>
         <a href="" className="h6 d-inline-block mb-2">{props.pro.title}</a>
         <h5 className="text-primary mb-3">${props.pro.price}</h5>
@@ -70,5 +47,7 @@ const ProductBox = (props) => {
 </div>
   )
 }
+
+
 
 export default ProductBox
