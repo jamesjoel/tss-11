@@ -1,22 +1,25 @@
 import React, {useState} from 'react'
+import { useFormik } from 'formik'
+import * as YUP from 'yup';
+
+const mySchema = YUP.object({
+    name : YUP.string().required("Insert Your Name"),
+    age : YUP.string().required("Insert Your Age")
+});
+
 
 const About = () => {
-  // let a = 100;
-
-  let [a, setA] = useState(0);
-
-  let demo1 = ()=>{
-    setA(()=>{
-      let b = a + 1;
-      return b;
-    });
-  }
-  let demo2 = ()=>{
-    setA(()=>{
-      let b = a - 1;
-      return b;
-    });
-  }
+  
+  let myForm = useFormik({
+    validationSchema : mySchema,
+    initialValues : {
+      name : "",
+      age : ""
+    },
+    onSubmit : (formData)=>{
+      console.log(formData)
+    }
+  })
 
   return (
     <>
@@ -30,11 +33,26 @@ const About = () => {
     </div>
     <div className="container">
       <div className="row">
-        <div className="col-md-12">
-          <button onClick={demo1}>+</button>
-          <button onClick={demo2}>-</button>
-            <h1>{a}</h1>
-        </div>
+          <form onSubmit={myForm.handleSubmit}>
+            <div className="col-md-6 border border-dark">
+              <div className='my-2'>
+                <label>Name</label>
+                <input type='text' name='name' onChange={myForm.handleChange} className={'form-control '+ (myForm.errors.name && myForm.touched.name ? 'is-invalid' : '')} />
+                {
+                  myForm.errors.name && myForm.touched.name ? <small className='text-danger'>{myForm.errors.name}</small> : ''
+                }
+              </div>
+              <div className='my-2'>
+                <label>Age</label>
+                <input type='text' name='age' onChange={myForm.handleChange} className={'form-control ' + (myForm.errors.age && myForm.touched.age ? 'is-invalid' : '')} />
+                {
+                  myForm.errors.age && myForm.touched.age ? <small className='text-danger'>{myForm.errors.age}</small> : ''
+                }
+              </div>
+            <br />
+            <button type='submit' className='btn btn-primary'>Add</button>
+            </div>
+          </form>     
       </div>
     </div>
     </>

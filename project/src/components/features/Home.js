@@ -67,7 +67,7 @@ const Home = () => {
             <div className="row g-4">
 
                {
-                allProduct.map((value, index)=><ProductBox pro={value} />)
+                allProduct.map((value, index)=><ProductBox key={index} pro={value} />)
                } 
                
                

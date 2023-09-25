@@ -17,6 +17,7 @@ const Header = () => {
                     <div className="navbar-nav ms-auto">
                         <NavLink to="/" className="nav-item nav-link">Home</NavLink>
                         <NavLink to="/about" className="nav-item nav-link">About</NavLink>
+                        <NavLink to="/signup" className="nav-item nav-link">Signup</NavLink>
                         
                         
                         <div className="nav-item dropdown">
