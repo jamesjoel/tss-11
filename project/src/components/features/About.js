@@ -1,62 +1,89 @@
-import React, {useState} from 'react'
+import React from 'react'
 import { useFormik } from 'formik'
 import * as YUP from 'yup';
+import './Style.css';
 
 const mySchema = YUP.object({
-    name : YUP.string().required("Insert Your Name"),
-    age : YUP.string().required("Insert Your Age")
-});
-
+  name : YUP.string().required("Insert Your Name"),
+  address : YUP.string().required("Insert Your address"),
+  city : YUP.string().required("Insert Your city"),
+  gender : YUP.string().required("Insert Your gender")
+})
 
 const About = () => {
-  
+
   let myForm = useFormik({
     validationSchema : mySchema,
     initialValues : {
       name : "",
-      age : ""
+      address : "",
+      city : "",
+      gender : ""
     },
-    onSubmit : (formData)=>{
-      console.log(formData)
+    onSubmit : (data)=>{
+      console.log(data);
     }
   })
 
   return (
     <>
-    <div className="container-fluid py-5" style={{minHeight : "700px"}}>
-        <div className="container">
-            <div className="mx-auto text-center wow fadeIn" data-wow-delay="0.1s" style={{maxWidth: "600px"}}>
-                <h1 className="text-primary mb-3"><span className="fw-light text-dark">About</span> Us</h1>
-                <p className="mb-5">Lorem ipsum dolor sit amet, Lorem ipsum dolor sit amet consectetur adipisicing elit. Et, optio, dolores voluptas autem voluptatum voluptates recusandae quisquam est hic, quidem officiis voluptatibus molestias praesentium nemo necessitatibus tempora nostrum excepturi nesciunt? consectetur adipiscing elit. Duis aliquet, erat non malesuada consequat, nibh erat tempus risus.</p>
-            </div>
-        </div>
-    </div>
-    <div className="container">
-      <div className="row">
-          <form onSubmit={myForm.handleSubmit}>
-            <div className="col-md-6 border border-dark">
+      <div className="container" style={{minHeight : "600px"}}>
+        <form onSubmit={myForm.handleSubmit} >
+        <div className="row">
+          <div className="col-md-6 offset-md-3 my-3">
               <div className='my-2'>
                 <label>Name</label>
-                <input type='text' name='name' onChange={myForm.handleChange} className={'form-control '+ (myForm.errors.name && myForm.touched.name ? 'is-invalid' : '')} />
+                <input type='text' name='name' onChange={myForm.handleChange} className={'form-control '+(myForm.errors.name && myForm.touched.name ? 'is-invalid' : '')} />
                 {
                   myForm.errors.name && myForm.touched.name ? <small className='text-danger'>{myForm.errors.name}</small> : ''
                 }
               </div>
               <div className='my-2'>
-                <label>Age</label>
-                <input type='text' name='age' onChange={myForm.handleChange} className={'form-control ' + (myForm.errors.age && myForm.touched.age ? 'is-invalid' : '')} />
+                <label>Address</label>
+                <textarea name='address' onChange={myForm.handleChange} className={'form-control '+(myForm.errors.address && myForm.touched.address ? 'is-invalid' : '')} ></textarea>
                 {
-                  myForm.errors.age && myForm.touched.age ? <small className='text-danger'>{myForm.errors.age}</small> : ''
+                  myForm.errors.address && myForm.touched.address ? <small className='text-danger'>{myForm.errors.address}</small> : ''
                 }
               </div>
-            <br />
-            <button type='submit' className='btn btn-primary'>Add</button>
-            </div>
-          </form>     
+              <div className='my-2'>
+                <label>Gender</label>
+                <br />
+                <div className="form-check">
+                    <label htmlFor='male'>Male</label>
+                    <input id='male' type="radio" className={'form-check-input '+(myForm.errors.gender && myForm.touched.gender ? 'is-invalid-radio' : '')} onChange={myForm.handleChange} name="gender" value="male" />
+                    
+                    
+                </div>
+                <div className="form-check">
+                    <label htmlFor='female'>Female</label> 
+                    <input id='female' type="radio" className={'form-check-input '+(myForm.errors.gender && myForm.touched.gender ? 'is-invalid-radio' : '')} onChange={myForm.handleChange} name="gender" value="female" />
+                </div>
+                
+                {
+                  myForm.errors.gender && myForm.touched.gender ? <small className='text-danger'>{myForm.errors.gender}</small> : ''
+                }
+              </div>
+              <div className='my-2'>
+                <label>City</label>
+                <select className={'form-control '+(myForm.errors.city && myForm.touched.city ? 'is-invalid' : '')} name='city' onChange={myForm.handleChange}>
+                  <option>Select</option>
+                  <option>Indore</option>
+                  <option>Mumbai</option>
+                </select>
+                {
+                  myForm.errors.city && myForm.touched.city ? <small className='text-danger'>{myForm.errors.city}</small> : ''
+                }
+                <br />
+                <br />
+                <div className='d-grid'>
+                <button type='submit' className='btn btn-primary'>Add</button>
+                </div>
+              </div>
+          </div>
+        </div>
+        </form>
       </div>
-    </div>
     </>
-
   )
 }
 

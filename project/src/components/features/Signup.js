@@ -1,13 +1,22 @@
 import React from 'react'
 import { useFormik } from 'formik'
 import * as YUP from 'yup';
+import './Style.css'
 
 const signupSchema = YUP.object({
-    name : YUP.string().required("Insert Your Full Name"),
-    email : YUP.string().required("Insert Your Email Id"),
+    name : YUP.string().required("Insert Your Full Name").test("demo", "First Letter should be capital", (value)=>{
+        let nameArr = value.split(""); // Gaurav
+        if(nameArr[0].toUpperCase() === nameArr[0])
+        {
+            return true;
+        }else{
+            return false;
+        }
+    }),
+    email : YUP.string().email("This Email Id is Invalid").required("Insert Your Email Id"),
     password : YUP.string().required("Insert Your Password"),
-    repassword : YUP.string().required("Insert Your Re-Password"),
-    contact : YUP.string().required("Insert Your Contact Number"),
+    repassword : YUP.string().oneOf([YUP.ref('password')], "Password and Re-Password should be same").required("Insert Your Re-Password"),
+    contact : YUP.number().typeError("Insert Number Only").min("1000000000", "Contact Number Should be more then 10 digit").max("9999999999999", "Contact Number should be less then 13 digit").required("Insert Your Contact Number"),
     address : YUP.string().required("Insert Your Full Address"),
     city : YUP.string().required("Select Your City"),
     gender : YUP.string().required("Select Your Gender"),
@@ -98,16 +107,24 @@ const Signup = () => {
                                 signupFrm.errors.city && signupFrm.touched.city ? <small className='text-danger'>{signupFrm.errors.city}</small> : ''
                             }
                         </div>
-                        <div className="my-2">
-                            <label>Gender</label>
-                            <br />
-                            Male <input type='radio' name='gender' value="male" onChange={signupFrm.handleChange} />
-                            Female <input type='radio' name='gender' value="female" onChange={signupFrm.handleChange} />
-                            <br />
-                            {
-                                signupFrm.errors.gender && signupFrm.touched.gender ? <small className='text-danger'>{signupFrm.errors.gender}</small> : ''
-                            }
-                        </div>
+                        <div className='my-2'>
+                <label>Gender</label>
+                <br />
+                <div className="form-check">
+                    <label htmlFor='male'>Male</label>
+                    <input id='male' type="radio" className={'form-check-input '+(signupFrm.errors.gender && signupFrm.touched.gender ? 'is-invalid-radio' : '')} onChange={signupFrm.handleChange} name="gender" value="male" />
+                    
+                    
+                </div>
+                <div className="form-check">
+                    <label htmlFor='female'>Female</label> 
+                    <input id='female' type="radio" className={'form-check-input '+(signupFrm.errors.gender && signupFrm.touched.gender ? 'is-invalid-radio' : '')} onChange={signupFrm.handleChange} name="gender" value="female" />
+                </div>
+                
+                {
+                  signupFrm.errors.gender && signupFrm.touched.gender ? <small className='text-danger'>{signupFrm.errors.gender}</small> : ''
+                }
+              </div>
                     </div>
                     <div className="card-footer">
                         <button type='submit' className='btn btn-primary'>Signup</button>
