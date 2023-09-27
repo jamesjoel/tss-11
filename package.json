@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "formik": "^2.4.5"
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "formik": "^2.4.5",
+    "mongoose": "^7.5.3"
   }
 }

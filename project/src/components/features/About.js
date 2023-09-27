@@ -13,6 +13,7 @@ const mySchema = YUP.object({
 const About = () => {
 
   let myForm = useFormik({
+    
     validationSchema : mySchema,
     initialValues : {
       name : "",
@@ -22,6 +23,7 @@ const About = () => {
     },
     onSubmit : (data)=>{
       console.log(data);
+      myForm.resetForm();
     }
   })
 

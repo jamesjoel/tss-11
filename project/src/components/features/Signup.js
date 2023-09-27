@@ -1,30 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useFormik } from 'formik'
-import * as YUP from 'yup';
 import './Style.css'
-
-const signupSchema = YUP.object({
-    name : YUP.string().required("Insert Your Full Name").test("demo", "First Letter should be capital", (value)=>{
-        let nameArr = value.split(""); // Gaurav
-        if(nameArr[0].toUpperCase() === nameArr[0])
-        {
-            return true;
-        }else{
-            return false;
-        }
-    }),
-    email : YUP.string().email("This Email Id is Invalid").required("Insert Your Email Id"),
-    password : YUP.string().required("Insert Your Password"),
-    repassword : YUP.string().oneOf([YUP.ref('password')], "Password and Re-Password should be same").required("Insert Your Re-Password"),
-    contact : YUP.number().typeError("Insert Number Only").min("1000000000", "Contact Number Should be more then 10 digit").max("9999999999999", "Contact Number should be less then 13 digit").required("Insert Your Contact Number"),
-    address : YUP.string().required("Insert Your Full Address"),
-    city : YUP.string().required("Select Your City"),
-    gender : YUP.string().required("Select Your Gender"),
-})
-
+import signupSchema from '../../schemas/SignupSchema'
+import axios from 'axios'
 
 const Signup = () => {
 
+    let [confirm, setConfirm] = useState(false)
+    let [err, setErr] = useState(false);
+    let [preloader, setPreLoader] = useState(false);
     let signupFrm = useFormik({
         validationSchema : signupSchema,
         initialValues : {
@@ -38,7 +22,20 @@ const Signup = () => {
             gender : ""
             },
         onSubmit : (formData)=>{
-            console.log(formData);
+            // console.log(formData);
+            setPreLoader(true);
+            axios.post("http://localhost:8080/api/signup", formData)
+            .then(response=>{
+                setConfirm(true);
+                signupFrm.resetForm();
+                setPreLoader(false);
+                setErr(false);
+            }).catch(err=>{
+                console.log(err)
+                setErr(true);
+                setConfirm(false);
+                setPreLoader(false);
+            });
         }
     });
 
@@ -55,49 +52,49 @@ const Signup = () => {
                     <div className="card-body">
                         <div className="my-2">
                             <label>Full Name</label>
-                            <input type='text' onChange={signupFrm.handleChange} name='name'  className={'form-control ' + (signupFrm.errors.name && signupFrm.touched.name ? 'is-invalid' : '')} />
+                            <input type='text' value={signupFrm.values.name} onChange={signupFrm.handleChange} name='name'  className={'form-control ' + (signupFrm.errors.name && signupFrm.touched.name ? 'is-invalid' : '')} />
                             {
                                 signupFrm.errors.name && signupFrm.touched.name ? <small className='text-danger'>{signupFrm.errors.name}</small> : ''
                             }
                         </div>
                         <div className="my-2">
                             <label>Email</label>
-                            <input type='text' onChange={signupFrm.handleChange} name='email' className={'form-control ' + (signupFrm.errors.email && signupFrm.touched.email ? 'is-invalid' : '')} />
+                            <input type='text' value={signupFrm.values.email} onChange={signupFrm.handleChange} name='email' className={'form-control ' + (signupFrm.errors.email && signupFrm.touched.email ? 'is-invalid' : '')} />
                             {
                                 signupFrm.errors.email && signupFrm.touched.email ? <small className='text-danger'>{signupFrm.errors.email}</small> : ''
                             }
                         </div>
                         <div className="my-2">
                             <label>Password</label>
-                            <input type='password' onChange={signupFrm.handleChange} name='password' className={'form-control ' + (signupFrm.errors.password && signupFrm.touched.password ? 'is-invalid' : '')} />
+                            <input type='password' value={signupFrm.values.password} onChange={signupFrm.handleChange} name='password' className={'form-control ' + (signupFrm.errors.password && signupFrm.touched.password ? 'is-invalid' : '')} />
                             {
                                 signupFrm.errors.password && signupFrm.touched.password ? <small className='text-danger'>{signupFrm.errors.password}</small> : ''
                             }
                         </div>
                         <div className="my-2">
                             <label>Re-Password</label>
-                            <input type='password' onChange={signupFrm.handleChange} name='repassword' className={'form-control ' + (signupFrm.errors.repassword && signupFrm.touched.repassword ? 'is-invalid' : '')} />
+                            <input type='password' value={signupFrm.values.repassword} onChange={signupFrm.handleChange} name='repassword' className={'form-control ' + (signupFrm.errors.repassword && signupFrm.touched.repassword ? 'is-invalid' : '')} />
                             {
                                 signupFrm.errors.repassword && signupFrm.touched.repassword ? <small className='text-danger'>{signupFrm.errors.repassword}</small> : ''
                             }
                         </div>
                         <div className="my-2">
                             <label>Address</label>
-                            <textarea name='address' onChange={signupFrm.handleChange} className={'form-control ' + (signupFrm.errors.address && signupFrm.touched.address ? 'is-invalid' : '')}></textarea>
+                            <textarea name='address' value={signupFrm.values.address} onChange={signupFrm.handleChange} className={'form-control ' + (signupFrm.errors.address && signupFrm.touched.address ? 'is-invalid' : '')}></textarea>
                             {
                                 signupFrm.errors.address && signupFrm.touched.address ? <small className='text-danger'>{signupFrm.errors.address}</small> : ''
                             }
                         </div>
                         <div className="my-2">
                             <label>Contact</label>
-                            <input type='text' onChange={signupFrm.handleChange} name='contact'  className={'form-control ' + (signupFrm.errors.contact && signupFrm.touched.contact ? 'is-invalid' : '')} />
+                            <input type='text' value={signupFrm.values.contact} onChange={signupFrm.handleChange} name='contact'  className={'form-control ' + (signupFrm.errors.contact && signupFrm.touched.contact ? 'is-invalid' : '')} />
                             {
                                 signupFrm.errors.contact && signupFrm.touched.contact ? <small className='text-danger'>{signupFrm.errors.contact}</small> : ''
                             }
                         </div>
                         <div className="my-2">
                             <label>City</label>
-                            <select name='city' onChange={signupFrm.handleChange} className={'form-control ' + (signupFrm.errors.city && signupFrm.touched.city ? 'is-invalid' : '')}>
+                            <select name='city' value={signupFrm.values.city} onChange={signupFrm.handleChange} className={'form-control ' + (signupFrm.errors.city && signupFrm.touched.city ? 'is-invalid' : '')}>
                                 <option>Select</option>
                                 <option>Indore</option>
                                 <option>Mumbai</option>
@@ -112,7 +109,7 @@ const Signup = () => {
                 <br />
                 <div className="form-check">
                     <label htmlFor='male'>Male</label>
-                    <input id='male' type="radio" className={'form-check-input '+(signupFrm.errors.gender && signupFrm.touched.gender ? 'is-invalid-radio' : '')} onChange={signupFrm.handleChange} name="gender" value="male" />
+                    <input id='male'  type="radio" className={'form-check-input '+(signupFrm.errors.gender && signupFrm.touched.gender ? 'is-invalid-radio' : '')} onChange={signupFrm.handleChange} name="gender" value="male" />
                     
                     
                 </div>
@@ -127,9 +124,21 @@ const Signup = () => {
               </div>
                     </div>
                     <div className="card-footer">
-                        <button type='submit' className='btn btn-primary'>Signup</button>
+                        <button type='submit' className='btn btn-primary'>Signup { preloader ? <span className='spinner-border spinner-border-sm'></span> : '' }</button>
                     </div>
                 </div>
+                {
+                    confirm ? <div className='alert alert-success my-5'>
+                            You are successful signup with our website
+                            </div> : ''
+                }
+
+                {
+                    err ? <div className='alert alert-danger my-5'>
+                            Somthing went wrong !!!!
+                        </div> : ''
+                }
+                
             </div>
         </div>
         </form>
