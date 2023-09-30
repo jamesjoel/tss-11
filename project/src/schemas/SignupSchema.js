@@ -16,6 +16,7 @@ const signupSchema = YUP.object({
     contact : YUP.number().typeError("Insert Number Only").min("1000000000", "Contact Number Should be more then 10 digit").max("9999999999999", "Contact Number should be less then 13 digit").required("Insert Your Contact Number"),
     address : YUP.string().required("Insert Your Full Address"),
     city : YUP.string().required("Select Your City"),
+    state : YUP.string().required("Select Your State"),
     gender : YUP.string().required("Select Your Gender"),
 })
 

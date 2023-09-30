@@ -1,35 +1,87 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { useFormik } from 'formik'
 import * as YUP from 'yup';
 import './Style.css';
-
-const mySchema = YUP.object({
-  name : YUP.string().required("Insert Your Name"),
-  address : YUP.string().required("Insert Your address"),
-  city : YUP.string().required("Insert Your city"),
-  gender : YUP.string().required("Insert Your gender")
-})
+import axios from 'axios'
+// const mySchema = YUP.object({
+//   name : YUP.string().required("Insert Your Name"),
+//   address : YUP.string().required("Insert Your address"),
+//   city : YUP.string().required("Insert Your city"),
+//   gender : YUP.string().required("Insert Your gender")
+// })
 
 const About = () => {
 
+  let [cate, setCate] = useState([]);
+  let [subcate, setSubCate] = useState([]);
+
+  useEffect(()=>{
+    axios.get("http://localhost:8080/api/demo/category").then(response=>{
+      setCate(response.data)
+    })
+  })
+
   let myForm = useFormik({
-    
-    validationSchema : mySchema,
     initialValues : {
-      name : "",
-      address : "",
-      city : "",
-      gender : ""
-    },
-    onSubmit : (data)=>{
-      console.log(data);
-      myForm.resetForm();
+      category : "",
+      subcategory : ""
     }
   })
 
+
+  // let myForm = useFormik({
+    
+  //   validationSchema : mySchema,
+  //   initialValues : {
+  //     name : "",
+  //     address : "",
+  //     city : "",
+  //     gender : ""
+  //   },
+  //   onSubmit : (data)=>{
+  //     console.log(data);
+  //     myForm.resetForm();
+  //   }
+  // })
+
+
+  let getSubCate = (a)=>{
+    axios.get("http://localhost:8080/api/demo/sub_category/"+a).then(response=>{
+      //console.log(response.data);
+      setSubCate(response.data);
+    })
+  }
   return (
     <>
+
       <div className="container" style={{minHeight : "600px"}}>
+        <form onSubmit={myForm.handleSubmit}>
+        <div className="row">
+          <div className="col-md-6 offset-md-3">
+              <div className='my-5'>
+                <label>Category</label>
+                <select name='category' onChange={(event)=>{myForm.handleChange(event); getSubCate(event.target.value)}} className='form-control'>
+                  <option>Select</option>
+                    {
+                      cate.map((value, index)=><option key={index}>{value}</option>)
+                    }
+                </select>
+              </div>
+              <div className='my-5'>
+                <label>Sub-Category</label>
+                <select name='subcategory' onChange={myForm.handleChange} className='form-control'>
+                    <option>Select Category First</option>
+                    {
+                      subcate.map((value, index)=><option key={index}>{value}</option>)
+                    }
+                </select>
+              </div>
+          </div>
+        </div>
+        </form>
+      </div>
+
+      {/* <div className="container" style={{minHeight : "600px"}}>
         <form onSubmit={myForm.handleSubmit} >
         <div className="row">
           <div className="col-md-6 offset-md-3 my-3">
@@ -84,7 +136,7 @@ const About = () => {
           </div>
         </div>
         </form>
-      </div>
+      </div> */}
     </>
   )
 }
