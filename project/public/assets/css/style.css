@@ -75,8 +75,9 @@ img.animated.pulse {
 
 .navbar .navbar-nav .nav-link {
     margin-right: 45px;
-    padding: 0;
-    color: var(--bs-dark);
+    padding: 10px;
+
+    color: #fff;
     font-weight: 500;
     transition: .5s;
     outline: none;
@@ -84,7 +85,8 @@ img.animated.pulse {
 
 .navbar .navbar-nav .nav-link:hover,
 .navbar .navbar-nav .nav-link.active {
-    color: var(--bs-white);
+    background-color: var(--bs-white);
+    color : #000;
 }
 
 .navbar .dropdown-toggle::after {
@@ -104,7 +106,8 @@ img.animated.pulse {
 
     .navbar .navbar-nav .nav-link  {
         margin-right: 0;
-        padding: 10px 0;
+        padding: 10px;
+        color : #fff;
     }
 }
 

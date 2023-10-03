@@ -1,7 +1,23 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
+import Category from './Category';
+import axios from 'axios';
+import {API} from '../../../util/API';
+
 
 const Header = () => {
+
+    let [allCate, setAllCate] = useState([]);
+    useEffect(()=>{
+
+        axios.get(`${API}/category`).then(response=>{
+            setAllCate(response.data);
+        })
+
+    }, [])
+
+
+
   return (
     <div className="container-fluid sticky-top" style={{backgroundColor : "#90BC79"}}>
         <div className="container">
@@ -22,13 +38,17 @@ const Header = () => {
                         
                         
                         <div className="nav-item dropdown">
-                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Shop By Category</a>
+                            <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">Categories</a>
                             <div className="dropdown-menu bg-light mt-2">
-                                <a href="feature.html" className="dropdown-item">Features</a>
-                                <a href="how-to-use.html" className="dropdown-item">How To Use</a>
-                                <a href="testimonial.html" className="dropdown-item">Testimonial</a>
-                                <a href="blog.html" className="dropdown-item">Blog Articles</a>
-                                <a href="404.html" className="dropdown-item">404 Page</a>
+                                
+                                {
+                                    allCate.map((value, index)=>{
+                                        return(
+                                            <Category key={value._id} cate={value}/>
+                                        )
+                                    })
+                                }
+                                
                             </div>
                         </div>
                         

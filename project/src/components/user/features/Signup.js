@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useFormik } from "formik";
 import "./Style.css";
-import signupSchema from "../../schemas/SignupSchema";
+import signupSchema from "../../../schemas/SignupSchema";
 import axios from "axios";
 
 const Signup = () => {

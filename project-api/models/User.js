@@ -9,7 +9,8 @@ const UserSchema = mongoose.Schema({
     address : String,
     contact : String,
     city : String,
-    gender : String
+    gender : String,
+    state : String
     
 })
 
