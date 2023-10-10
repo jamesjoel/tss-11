@@ -3,14 +3,24 @@ import { useFormik } from "formik";
 import "./Style.css";
 import signupSchema from "../../../schemas/SignupSchema";
 import axios from "axios";
+import {NavLink, useNavigate} from 'react-router-dom'
 
 const Signup = () => {
+  let navigate = useNavigate();
   let [confirm, setConfirm] = useState(false);
   let [err, setErr] = useState(false);
   let [preloader, setPreLoader] = useState(false);
 
   let [allCity, setAllCity] = useState([]);
   let [allState, setAllState] = useState([]);
+
+
+  useEffect(()=>{
+    if(localStorage.getItem("token"))
+    {
+      navigate("/")
+    }
+  }, [])
 
   // useEffect(()=>{
   //     axios.get("http://localhost:8080/api/city").then(response=>{
@@ -322,7 +332,7 @@ const Signup = () => {
               </div>
               {confirm ? (
                 <div className="alert alert-success my-5">
-                  You are successful signup with our website
+                  You are successful signup with our website, Please <NavLink to='/login'>Login Here</NavLink>
                 </div>
               ) : (
                 ""

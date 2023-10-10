@@ -8,6 +8,15 @@ import {API} from '../../../util/API';
 const Header = () => {
 
     let [allCate, setAllCate] = useState([]);
+    let [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+    useEffect(()=>{
+        if(localStorage.getItem("token")){
+            setIsUserLoggedIn(true);
+        }
+    },[])
+
+
+
     useEffect(()=>{
 
         axios.get(`${API}/category`).then(response=>{
@@ -20,6 +29,32 @@ const Header = () => {
 
   return (
     <div className="container-fluid sticky-top" style={{backgroundColor : "#90BC79"}}>
+        <div className='container-fluid'>
+            <ul className='nav justify-content-end'>
+                {
+                    isUserLoggedIn ? 
+                    <>
+                        <li className='nav-item'>
+                            <NavLink className="nav-link text-dark" to="/">My-Account</NavLink>
+                        </li>
+                        <li className='nav-item'>
+                            <NavLink className="nav-link text-dark" to="/logout">Logout</NavLink>
+                        </li>
+                    </>
+                    :
+                    <>
+                    <li className='nav-item'>
+                        <NavLink className="nav-link text-dark" to="/login">Login</NavLink>
+                    </li>
+                    <li className='nav-item'>
+                        <NavLink className="nav-link text-dark" to="/signup">Signup</NavLink>
+                    </li>
+                    </>
+                }
+                
+                
+            </ul>
+        </div>
         <div className="container">
             <nav className="navbar navbar-expand-lg navbar-light p-0">
                 <NavLink to="/" className="navbar-brand">
@@ -33,7 +68,7 @@ const Header = () => {
                     <div className="navbar-nav ms-auto">
                         <NavLink to="/" className="nav-item nav-link">Home</NavLink>
                         <NavLink to="/about" className="nav-item nav-link">About</NavLink>
-                        <NavLink to="/signup" className="nav-item nav-link">Signup</NavLink>
+                        
                         <NavLink to="/demo" className="nav-item nav-link">Demo</NavLink>
                         
                         

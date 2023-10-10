@@ -3,7 +3,7 @@ require("../config/db");
 const mongoose = require("mongoose");
 
 const UserSchema = mongoose.Schema({
-    fullname : String,
+    name : String,
     email : String,
     password : String,
     address : String,

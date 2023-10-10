@@ -13,6 +13,8 @@ import Category from '../components/admin/features/Category';
 import CategoryList from '../components/admin/features/CategoryList';
 import Product from '../components/admin/features/Product';
 import ProductList from '../components/admin/features/ProductList';
+import Login from '../components/user/features/Login';
+import Logout from '../components/user/features/Logout';
 const AllRoutes = () => {
   return (
     <Routes>
@@ -21,6 +23,8 @@ const AllRoutes = () => {
           <Route path='about' element={<About />} />
           <Route path='signup' element={<Signup />} />
           <Route path='demo' element={<Demo />} />
+          <Route path='login' element={<Login />} />
+          <Route path='logout' element={<Logout />} />
         </Route>
         <Route path='admin' element={<AdminContainer />}>
             <Route path='' element={<Dashboard />} />
