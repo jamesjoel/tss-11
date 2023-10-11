@@ -25,7 +25,7 @@ const Login = () => {
       password : ""
     },
     onSubmit : (formdata)=>{
-        axios.post(`${API}/user/auth`, formdata).then(response=>{
+        axios.post(`${API}/userauth`, formdata).then(response=>{
           //console.log(response.data);
           if(response.data.success==true)
           { 

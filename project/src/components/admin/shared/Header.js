@@ -10,9 +10,10 @@ const Header = () => {
       <span className="navbar-toggler-icon"></span>
     </button>
     <div className="collapse navbar-collapse" id="collapsibleNavbar">
-      <ul className="navbar-nav">
+      {
+        localStorage.getItem("nimda") ? <ul className="navbar-nav">
         <li className="nav-item">
-          <NavLink className="nav-link" to="/admin">Dashboard</NavLink>
+          <NavLink className="nav-link" to="/admin/dashboard">Dashboard</NavLink>
         </li>
         <li className="nav-item dropdown">
           <NavLink className="nav-link dropdown-toggle" data-bs-toggle="dropdown" to="/admin/category">Category</NavLink>
@@ -31,8 +32,12 @@ const Header = () => {
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/setting">Setting</NavLink>
         </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/admin/logout">Logout</NavLink>
+        </li>
         
-      </ul>
+      </ul> : ''
+      }
     </div>
   </div>
 </nav>

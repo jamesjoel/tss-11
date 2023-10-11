@@ -3,7 +3,7 @@ const User = require("../models/User");
 const sha1 = require("sha1")
 const jwt = require("jsonwebtoken");
 
-routes.post("/auth", async(req, res)=>{
+routes.post("/", async(req, res)=>{
     let u = req.body.username; // rohit@gmail.com, hh@gg@.com
     let p = req.body.password;
 

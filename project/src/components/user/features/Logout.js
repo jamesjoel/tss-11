@@ -1,11 +1,12 @@
 import React from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const Logout = () => {
   localStorage.removeItem("token");
   localStorage.removeItem("name");
   localStorage.removeItem("email");
 
+  
   return(
     <Navigate to="/login" />
   )

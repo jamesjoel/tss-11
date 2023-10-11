@@ -35,7 +35,7 @@ const Header = () => {
                     isUserLoggedIn ? 
                     <>
                         <li className='nav-item'>
-                            <NavLink className="nav-link text-dark" to="/">My-Account</NavLink>
+                            <NavLink className="nav-link text-dark" to="/my-account">My-Account</NavLink>
                         </li>
                         <li className='nav-item'>
                             <NavLink className="nav-link text-dark" to="/logout">Logout</NavLink>
