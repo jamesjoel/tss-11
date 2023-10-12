@@ -1,59 +1,16 @@
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import Slider from '../shared/Slider'
 import ProductBox from '../shared/ProductBox'
+import axios from 'axios'
+import {API} from '../../../util/API'
 const Home = () => {
-    let allProduct = [
-        {
-            _id : 1,
-            title : "Teddy Bear",
-            price : 1200,
-            reviewCount : 9,
-            image : "pro1.jpg",
-            starRanking : 2.5
-        },
-        {
-            _id : 2,
-            title : "Remote Car",
-            price : 800,
-            reviewCount : 25,
-            image : "pro2.jpg",
-            starRanking : 3
-        },
-        {
-            _id : 3,
-            title : "Lego Set",
-            price : 3000,
-            reviewCount : 16,
-            image : "pro3.png",
-            starRanking : 4
-        },
-        {
-            _id : 4,
-            title : "Barbie Doll",
-            price : 2200,
-            reviewCount : 65,
-            image : "pro4.jpg",
-            starRanking : 3.5
-        },
-        {
-            _id : 5,
-            title : "Robot Toy",
-            price : 3500,
-            reviewCount : 4,
-            image : "pro5.jpg",
-            starRanking : 4
-        },
-        {
-            _id : 6,
-            title : "Toy Train",
-            price : 1400,
-            reviewCount : 14,
-            image : "pro6.jpg",
-            starRanking : 2.5
-        }
-        
-    ]
-
+    
+    let [product, setProduct] = useState([]);
+    useEffect(()=>{
+        axios.get(`${API}/product`).then(response=>{
+            setProduct(response.data);
+        })
+    }, [])
 
   return (
     <>
@@ -67,7 +24,7 @@ const Home = () => {
             <div className="row g-4">
 
                {
-                allProduct.map((value, index)=><ProductBox key={index} pro={value} />)
+                product.map((value, index)=><ProductBox key={index} pro={value} />)
                } 
                
                

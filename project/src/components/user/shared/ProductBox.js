@@ -1,15 +1,24 @@
 import React from 'react'
 import Star from './Star'
 import HalfStar from './HalfStar'
+import './ProductBox.css'
 
 const ProductBox = (props) => {
 
+  
+  let discount = props.pro.discount *  props.pro.price / 100;
+  
+  
+  let disPrice = props.pro.price - discount;
 
   return (
     <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
     <div className="product-item text-center border h-100 p-4">
-        <img className="img-fluid mb-4" style={{height : "300px"}} src={'/assets/img/'+props.pro.image} alt=""/>
-        <div className="mb-2">
+    
+        <img className="img-fluid mb-4" style={{height : "300px"}} src={'/assets/img/pro1.jpg'} alt=""/>
+
+        
+        {/* <div className="mb-2">
             {
               props.pro.starRanking == 1 ? <Star /> : ''
             }
@@ -39,9 +48,11 @@ const ProductBox = (props) => {
             }
             <small>({props.pro.reviewCount})</small>
 
-        </div>
+        </div> */}
         <a href="" className="h6 d-inline-block mb-2">{props.pro.title}</a>
-        <h5 className="text-primary mb-3">${props.pro.price}</h5>
+        
+        <h5 className="text-primary mb-0">${disPrice.toFixed(2)}</h5>
+        <p className="text-primary mb-3"><del>${props.pro.price.toFixed(2)}</del></p>
         <a href="" className="btn btn-outline-primary px-3">Add To Cart</a>
     </div>
 </div>

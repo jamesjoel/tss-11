@@ -6,6 +6,7 @@ routes.get("/", async(req, res)=>{
     res.send(result);
 })
 routes.post("/", async(req, res)=>{
+    console.log(req.body);
     await Product.create(req.body);
     res.send({success : true});
 })
