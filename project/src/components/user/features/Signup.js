@@ -4,6 +4,7 @@ import "./Style.css";
 import signupSchema from "../../../schemas/SignupSchema";
 import axios from "axios";
 import {NavLink, useNavigate} from 'react-router-dom'
+import {API} from '../../../util/API'
 
 const Signup = () => {
   let navigate = useNavigate();
@@ -22,15 +23,9 @@ const Signup = () => {
     }
   }, [])
 
-  // useEffect(()=>{
-  //     axios.get("http://localhost:8080/api/city").then(response=>{
-  //         // console.log(response.data);
-  //         setAllCity(response.data);
-  //     })
-  // }, [])
 
   useEffect(() => {
-    axios.get("http://localhost:8080/api/city/state").then((response) => {
+    axios.get(`${API}/city/state`).then((response) => {
       setAllState(response.data);
     });
   });
@@ -52,7 +47,7 @@ const Signup = () => {
       // console.log(formData);
       setPreLoader(true);
       axios
-        .post("http://localhost:8080/api/signup", formData)
+        .post(`${API}/signup`, formData)
         .then((response) => {
           setConfirm(true);
           signupFrm.resetForm();
@@ -69,7 +64,7 @@ const Signup = () => {
   });
 
   let getCity = (a) => {
-    axios.get("http://localhost:8080/api/city/getcity/"+a).then(response=>{
+    axios.get(`${API}/city/getcity/`+a).then(response=>{
         //console.log(response.data);
         setAllCity(response.data);
     })
