@@ -69,6 +69,9 @@ const Login = () => {
             {
               resObj.success == false && resObj.type == 2 ? <div className='alert alert-danger mt-4'>This Password is Incorrect !</div> : ''
             }
+            {
+              resObj.success == false && resObj.type == 3 ? <div className='alert alert-danger mt-4'>You are Deactivated User please Contact our team...!</div> : ''
+            }
           </div>
         </div>
         </form>

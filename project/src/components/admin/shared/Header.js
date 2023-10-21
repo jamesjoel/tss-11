@@ -33,6 +33,9 @@ const Header = () => {
           <NavLink className="nav-link" to="/admin/setting">Setting</NavLink>
         </li>
         <li className="nav-item">
+          <NavLink className="nav-link" to="/admin/users">Users</NavLink>
+        </li>
+        <li className="nav-item">
           <NavLink className="nav-link" to="/admin/logout">Logout</NavLink>
         </li>
         

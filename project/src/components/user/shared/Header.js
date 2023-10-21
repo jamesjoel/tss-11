@@ -34,12 +34,17 @@ const Header = () => {
                 {
                     isUserLoggedIn ? 
                     <>
-                        <li className='nav-item'>
-                            <NavLink className="nav-link text-dark" to="/my-account">My-Account</NavLink>
+                        <li className='nav-item dropdown'>
+                        <a href="#" className="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown"><strong>{localStorage.getItem("name")}</strong></a>
+                        <div className="dropdown-menu bg-light mt-2">
+                            
+                            <NavLink to='/account/my-account' className='dropdown-item'>My Account</NavLink>
+                            <NavLink to='/account/my-profile' className='dropdown-item'>My Profile</NavLink>
+                            {/* <a href='' className='dropdown-item'>My Orderes</a> */}
+                            <NavLink to='/logout' className='dropdown-item'>Logout</NavLink>
+                        </div>
                         </li>
-                        <li className='nav-item'>
-                            <NavLink className="nav-link text-dark" to="/logout">Logout</NavLink>
-                        </li>
+                        
                     </>
                     :
                     <>

@@ -31,6 +31,7 @@ const Signup = () => {
   });
 
   let signupFrm = useFormik({
+    enableReinitialize : true,
     validationSchema: signupSchema,
     initialValues: {
       name: "",
@@ -63,11 +64,10 @@ const Signup = () => {
     },
   });
 
-  let getCity = (a) => {
-    axios.get(`${API}/city/getcity/`+a).then(response=>{
-        //console.log(response.data);
-        setAllCity(response.data);
-    })
+  let getCity = async (a) => {
+    let response = await axios.get(`${API}/city/getcity/`+a)
+    setAllCity(response.data);
+        
   };
 
   return (
@@ -323,6 +323,7 @@ const Signup = () => {
                       ""
                     )}
                   </button>
+                  {/* <button type="button" onClick={()=>signupFrm.values.contact=""} className="btn btn-dark">Temp Button</button> */}
                 </div>
               </div>
               {confirm ? (

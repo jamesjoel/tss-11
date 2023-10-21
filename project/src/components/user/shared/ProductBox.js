@@ -49,6 +49,7 @@ const ProductBox = (props) => {
             <small>({props.pro.reviewCount})</small>
 
         </div> */}
+        <small className='mb-0 pb-0 d-block'>({props.pro.category})</small>
         <a href="" className="h6 d-inline-block mb-2">{props.pro.title}</a>
         
         <h5 className="text-primary mb-0">${disPrice.toFixed(2)}</h5>

@@ -19,6 +19,11 @@ import AdminLogout from '../components/admin/features/Logout'
 import Logout from '../components/user/features/Logout';
 import MyAccount from '../components/user/features/MyAccount';
 import AdminProtectedRoute from '../protected/AdminProtectedRoute';
+import Users from '../components/admin/features/Users';
+import ProductByCategory from '../components/user/features/ProductByCategory';
+import AccountContainer from '../containers/AccountContainer';
+import MyProfile from '../components/user/features/MyProfile';
+import EditProfile from '../components/user/features/EditProfile';
 const AllRoutes = () => {
   return (
     <Routes>
@@ -27,9 +32,15 @@ const AllRoutes = () => {
           <Route path='about' element={<About />} />
           <Route path='signup' element={<Signup />} />
           <Route path='demo' element={<Demo />} />
-          <Route path='my-account' element={<MyAccount />} />
+          
           <Route path='login' element={<Login />} />
+          <Route path='category/:catename' element={<ProductByCategory />} />
           <Route path='logout' element={<Logout />} />
+        </Route>
+        <Route path='account' element={<AccountContainer />}>
+          <Route path='my-account' element={<MyAccount />} />
+          <Route path='update' element={<EditProfile />} />
+          <Route path='my-profile' element={<MyProfile />} />
         </Route>
         <Route path='admin' element={<AdminContainer />}>
             <Route path='' element={<AdminLogin />} />
@@ -40,6 +51,7 @@ const AllRoutes = () => {
                 <Route path='product' element={<Product />} />
                 <Route path='product/list' element={<ProductList />} />
 
+                <Route path='users' element={<Users />} />
                 <Route path='setting' element={<Setting />} />
                 <Route path='logout' element={<AdminLogout />} />
             </Route>
