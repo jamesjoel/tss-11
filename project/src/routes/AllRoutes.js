@@ -24,6 +24,8 @@ import ProductByCategory from '../components/user/features/ProductByCategory';
 import AccountContainer from '../containers/AccountContainer';
 import MyProfile from '../components/user/features/MyProfile';
 import EditProfile from '../components/user/features/EditProfile';
+import Student from '../components/admin/features/Student';
+import StudentList from '../components/admin/features/StudentList';
 const AllRoutes = () => {
   return (
     <Routes>
@@ -53,6 +55,8 @@ const AllRoutes = () => {
 
                 <Route path='users' element={<Users />} />
                 <Route path='setting' element={<Setting />} />
+                <Route path='student' element={<Student />} />
+                <Route path='student-list' element={<StudentList />} />
                 <Route path='logout' element={<AdminLogout />} />
             </Route>
         </Route>
