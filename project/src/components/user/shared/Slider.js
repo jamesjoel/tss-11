@@ -1,24 +1,41 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import SimpleImageSlider from 'react-simple-image-slider'
+import axios from 'axios'
+import { API, PATH } from '../../../util/API'
 
 const Slider = () => {
+
+    let [images, setImages] = useState([]);
+    useEffect(()=>{
+        axios.get(`${API}/slider`).then(response=>{
+            let data = [];
+            response.data.forEach(value=>{
+                let obj = { url : `${PATH}/slider/${value.image}` }
+                data.push(obj);
+            })
+            
+            setImages(data);
+        })
+    }, [])
+    
+    /*
+
+    data = [
+        {
+            url : 
+        },
+        {
+            url : 
+        }
+    ]
+
+    */
+
   return (
-    <div className="container-fluid bg-primary hero-header mb-5">
-        <div className="container">
-            <div className="row g-5 align-items-center">
-                <div className="col-lg-6 text-center text-lg-start">
-                    <h3 className="fw-light text-white animated slideInRight">Natural & Organic</h3>
-                    <h1 className="display-4 text-white animated slideInRight">Hair <span className="fw-light text-dark">Shampoo</span> For Healthy Hair</h1>
-                    <p className="text-white mb-4 animated slideInRight">Lorem ipsum dolor sit amet, consectetur adipiscing
-                        elit. Etiam feugiat rutrum lectus, sed auctor ex malesuada id. Orci varius natoque penatibus et
-                        magnis dis parturient montes.</p>
-                    <a href="" className="btn btn-dark py-2 px-4 me-3 animated slideInRight">Shop Now</a>
-                    <a href="" className="btn btn-outline-dark py-2 px-4 animated slideInRight">Contact Us</a>
-                </div>
-                <div className="col-lg-6">
-                    <img className="img-fluid animated pulse infinite" src="/assets/img/shampoo.png" alt="" />
-                </div>
-            </div>
-        </div>
+    <div>
+        <SimpleImageSlider width={"100%"} height={400} images={images} showBullets={true} showNavs={true} slideDuration={1} autoPlayDelay={0.5} autoPlay={true} >
+            <h2>Hello</h2>
+        </SimpleImageSlider>
     </div>
   )
 }

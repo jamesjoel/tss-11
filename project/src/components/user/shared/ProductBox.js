@@ -2,6 +2,7 @@ import React from 'react'
 import Star from './Star'
 import HalfStar from './HalfStar'
 import './ProductBox.css'
+import {PATH} from '../../../util/API';
 
 const ProductBox = (props) => {
 
@@ -14,8 +15,8 @@ const ProductBox = (props) => {
   return (
     <div className="col-md-6 col-lg-3 wow fadeIn" data-wow-delay="0.1s">
     <div className="product-item text-center border h-100 p-4">
-    
-        <img className="img-fluid mb-4" style={{height : "300px"}} src={'/assets/img/pro1.jpg'} alt=""/>
+      <h4><span className='badge bg-danger rounded-pill' style={{marginTop : "20px", position : "absolute", marginLeft : "20px"}}>{ props.pro.discount }% off</span></h4>
+        <img className="img-fluid mb-4" style={{height : "300px"}} src={PATH+"/product/"+props.pro.image}  alt=""/>
 
         
         {/* <div className="mb-2">

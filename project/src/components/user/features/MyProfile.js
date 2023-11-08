@@ -57,7 +57,7 @@ const MyProfile = () => {
                                 <strong>City</strong>
                                 <p className='px-3'>{user.city}</p>
                                 <NavLink to="/account/update" className='btn btn-info btn-sm'>Edit Information</NavLink>
-                                <button className='btn btn-danger btn-sm'>Change Password</button>                             
+                                <NavLink to="/account/change-password" className='btn btn-danger btn-sm mx-2'>Change Password</NavLink>                             
                                 
                             </div>
                             

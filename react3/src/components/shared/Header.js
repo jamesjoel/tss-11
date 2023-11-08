@@ -1,11 +1,13 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
 const Header = () => {
+  let data = useSelector((state)=>state);
   return (
     <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
   <div className="container">
-    <NavLink className="navbar-brand" to="">My-Website</NavLink>
+    <NavLink className="navbar-brand" to="">{data.name}</NavLink>
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span className="navbar-toggler-icon"></span>
     </button>

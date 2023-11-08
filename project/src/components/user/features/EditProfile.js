@@ -21,9 +21,11 @@ const EditProfile = () => {
 
   useEffect(() => {
     axios.get(`${API}/city/state`).then((response) => {
+      
       setAllState(response.data);
+      
     });
-  });
+  }, []);
   useEffect(()=>{
     axios.get(`${API}/users/info`, {
         headers : { Authorization : localStorage.getItem("token") }
@@ -31,6 +33,7 @@ const EditProfile = () => {
     ).then(response=>{
         // console.log(response.data);
         setUser(response.data.result);
+        getCity(response.data.result.state);
        // signupFrm.setFieldValue("name", response.data.result.name)
     })
 }, [])
@@ -41,7 +44,13 @@ const EditProfile = () => {
     // validationSchema: signupSchema,
     initialValues: user,
     onSubmit: (formData) => {
-        //console.log(formData);
+        axios.post(`${API}/profile/changeprofile`, formData, {
+          headers : {Authorization : localStorage.getItem("token")}
+        }).then(response=>{
+          // console.log(response.data);
+          localStorage.setItem("name", formData.name);
+          navigate("/account/my-profile");
+        })
     },
   });
 
@@ -89,6 +98,7 @@ const EditProfile = () => {
                   <div className="my-2">
                     <label>Email</label>
                     <input
+                      disabled={true}
                       type="text"
                       value={signupFrm.values.email}
                       onChange={signupFrm.handleChange}
@@ -130,6 +140,28 @@ const EditProfile = () => {
                       ""
                     )}
                   </div>
+                <div className="my-2">
+                      <label>Gender</label>
+                      <br />
+                      Male <input
+                        type="radio"
+                        value="male"
+                        name="gender"
+                        onChange={signupFrm.handleChange}
+                        checked = {signupFrm.values.gender == "male" ? true : false}
+                       
+                        />
+                      Female <input
+                        type="radio"
+                        value="female"
+                        name="gender"
+                        checked = {signupFrm.values.gender == "female" ? true : false}
+                        onChange={signupFrm.handleChange}
+                       
+                        />
+                </div>     
+
+
                   <div className="my-2">
                     <label>Contact</label>
                     <input
@@ -176,6 +208,32 @@ const EditProfile = () => {
                     {signupFrm.errors.state && signupFrm.touched.state ? (
                       <small className="text-danger">
                         {signupFrm.errors.state}
+                      </small>
+                    ) : (
+                      ""
+                    )}
+                  </div>
+                  <div className="my-2">
+                    <label>City</label>
+                    <select
+                      name="city"
+                      value={signupFrm.values.city}
+                      onChange={signupFrm.handleChange}
+                      className={
+                        "form-control " +
+                        (signupFrm.errors.city && signupFrm.touched.city
+                          ? "is-invalid"
+                          : "")
+                      }
+                    >
+                      <option>Select</option>
+                      {allCity.map((value) => (
+                        <option key={value._id}>{value.name}</option>
+                      ))}
+                    </select>
+                    {signupFrm.errors.city && signupFrm.touched.city ? (
+                      <small className="text-danger">
+                        {signupFrm.errors.city}
                       </small>
                     ) : (
                       ""

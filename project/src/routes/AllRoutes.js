@@ -26,6 +26,8 @@ import MyProfile from '../components/user/features/MyProfile';
 import EditProfile from '../components/user/features/EditProfile';
 import Student from '../components/admin/features/Student';
 import StudentList from '../components/admin/features/StudentList';
+import Slider from '../components/admin/features/Slider';
+import ChangePassword from '../components/user/features/ChangePassword';
 const AllRoutes = () => {
   return (
     <Routes>
@@ -41,14 +43,17 @@ const AllRoutes = () => {
         </Route>
         <Route path='account' element={<AccountContainer />}>
           <Route path='my-account' element={<MyAccount />} />
+          <Route path='change-password' element={<ChangePassword />} />
           <Route path='update' element={<EditProfile />} />
           <Route path='my-profile' element={<MyProfile />} />
         </Route>
         <Route path='admin' element={<AdminContainer />}>
             <Route path='' element={<AdminLogin />} />
             <Route path='' element={<AdminProtectedRoute />} >
+                <Route path='slider' element={<Slider />} />
                 <Route path='dashboard' element={<Dashboard />} />
                 <Route path='category' element={<Category />} />
+                <Route path='edit-category/:id' element={<Category />} />
                 <Route path='category/list' element={<CategoryList />} />
                 <Route path='product' element={<Product />} />
                 <Route path='product/list' element={<ProductList />} />
