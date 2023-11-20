@@ -3,9 +3,12 @@ import { NavLink } from 'react-router-dom'
 import Category from './Category';
 import axios from 'axios';
 import {API} from '../../../util/API';
+import { useSelector } from 'react-redux'
 
 
 const Header = () => {
+
+    let cart = useSelector(state=>state);
 
     let [allCate, setAllCate] = useState([]);
     let [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
@@ -93,7 +96,7 @@ const Header = () => {
                         </div>
                         
                     </div>
-                    <a href="" className="btn btn-dark py-2 px-4 d-none d-lg-inline-block">My Cart (0)</a>
+                    <NavLink to="/mycart" className="btn btn-dark py-2 px-4 d-none d-lg-inline-block">My Cart ({cart.length})</NavLink>
                 </div>
             </nav>
         </div>

@@ -1,14 +1,22 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { change } from '../../redux/DemoSlice'
 
 const About = () => {
+  let disp = useDispatch();
+  let x = useSelector(state=>state);
 
-  let a = useSelector((state)=>state);
-
+  let hello = ()=>{
+    disp(change(200));
+  }
   return (
     <>
-      <div>About</div>
-      <h2>{a.name}</h2>
+      <div className='container my-4'>
+        <div>About</div>
+        <h2>{x}</h2>
+        <button onClick={hello}>OK</button>
+      </div>
+
     </>
   )
 }

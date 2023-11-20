@@ -28,12 +28,14 @@ import Student from '../components/admin/features/Student';
 import StudentList from '../components/admin/features/StudentList';
 import Slider from '../components/admin/features/Slider';
 import ChangePassword from '../components/user/features/ChangePassword';
+import MyCart from '../components/user/features/MyCart';
 const AllRoutes = () => {
   return (
     <Routes>
         <Route path='' element={<UserContainer />}>
           <Route path='' element={<Home />} />
           <Route path='about' element={<About />} />
+          <Route path='mycart' element={<MyCart />} />
           <Route path='signup' element={<Signup />} />
           <Route path='demo' element={<Demo />} />
           
