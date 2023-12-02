@@ -1,0 +1,44 @@
+{
+  "user": [
+    {
+      "name": "Nidhi",
+      "age": "20",
+      "email": "nidhi@gmail.com",
+      "contact": "54878787",
+      "id": 4
+    },
+    {
+      "name": "Nilesh Joshi",
+      "age": "23",
+      "email": "nilesh@gmail.com",
+      "contact": "5241574987",
+      "id": 5
+    },
+    {
+      "name": "Raman",
+      "age": "28",
+      "email": "raman@gmail.com",
+      "contact": "998885",
+      "id": 6
+    },
+    {
+      "name": "Nilesh Joshi",
+      "age": "20",
+      "email": "nilesh@gmail.com",
+      "contact": "545454",
+      "id": 9
+    }
+  ],
+  "student": [
+    {
+      "name": "Rohit",
+      "age": "20",
+      "id": 1
+    },
+    {
+      "name": "Amar Joshi",
+      "age": "40",
+      "id": 2
+    }
+  ]
+}

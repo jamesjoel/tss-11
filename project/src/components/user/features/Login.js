@@ -4,9 +4,12 @@ import loginSchema from '../../../schemas/LoginSchema';
 import axios from 'axios'
 import {API} from '../../../util/API'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { isLoggedIn } from '../../../redux/MenuBarSlice'
 
 const Login = () => {
   let navigate = useNavigate();
+  let dispatch = useDispatch();
 
   useEffect(()=>{
     if(localStorage.getItem("token"))
@@ -32,6 +35,7 @@ const Login = () => {
             localStorage.setItem("token", response.data.token);
             localStorage.setItem("name", response.data.name);
             localStorage.setItem("email", response.data.email);
+            dispatch(isLoggedIn());
             navigate("/");
           }
           setResObj(response.data);

@@ -29,6 +29,7 @@ import StudentList from '../components/admin/features/StudentList';
 import Slider from '../components/admin/features/Slider';
 import ChangePassword from '../components/user/features/ChangePassword';
 import MyCart from '../components/user/features/MyCart';
+import Map from '../components/admin/features/Map';
 const AllRoutes = () => {
   return (
     <Routes>
@@ -52,6 +53,7 @@ const AllRoutes = () => {
         <Route path='admin' element={<AdminContainer />}>
             <Route path='' element={<AdminLogin />} />
             <Route path='' element={<AdminProtectedRoute />} >
+                <Route path='map' element={<Map />} />
                 <Route path='slider' element={<Slider />} />
                 <Route path='dashboard' element={<Dashboard />} />
                 <Route path='category' element={<Category />} />

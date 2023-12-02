@@ -3,18 +3,26 @@ import { NavLink } from 'react-router-dom'
 import Category from './Category';
 import axios from 'axios';
 import {API} from '../../../util/API';
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { isLoggedIn } from '../../../redux/MenuBarSlice'
+import { addToCartServer } from '../../../redux/CartSlice'
+
 
 
 const Header = () => {
-
-    let cart = useSelector(state=>state);
+    let dispatch = useDispatch();
+    
+    let check = useSelector(state=>state.MenuBarSlice);
+    
+    dispatch(addToCartServer());
+    let cart = useSelector(state=>state.CartSlice);
 
     let [allCate, setAllCate] = useState([]);
     let [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
     useEffect(()=>{
+
         if(localStorage.getItem("token")){
-            setIsUserLoggedIn(true);
+            dispatch(isLoggedIn());
         }
     },[])
 
@@ -35,7 +43,7 @@ const Header = () => {
         <div className='container-fluid'>
             <ul className='nav justify-content-end'>
                 {
-                    isUserLoggedIn ? 
+                    check ? 
                     <>
                         <li className='nav-item dropdown'>
                         <a href="#" className="nav-link dropdown-toggle text-dark" data-bs-toggle="dropdown"><strong>{localStorage.getItem("name")}</strong></a>

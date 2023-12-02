@@ -6,6 +6,7 @@ import Contact from '../components/feature/Contact'
 import StudentLayout from '../layoute/StudentLayout'
 import Add from '../components/feature/student/Add'
 import View from '../components/feature/student/View'
+import OnlineTest from '../components/feature/OnlineTest'
 const AllRoutes = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const AllRoutes = () => {
               <Route path='' element={<Home />} />
               <Route path='about' element={<About />} />
               <Route path='contact' element={<Contact />} />
+              <Route path='online-test' element={<OnlineTest />} />
               <Route path='student' element={<StudentLayout />}>
                 <Route path='add' element={<Add />} />
                 <Route path='view' element={<View />} />

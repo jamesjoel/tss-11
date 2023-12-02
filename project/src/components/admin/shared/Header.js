@@ -1,9 +1,20 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import { NavLink } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux' 
+import { isAdminLoggedIn } from '../../../redux/AdminMenuBarSlice'
 
 
 const Header = () => {
 
+  let disp = useDispatch();
+  let check = useSelector(state=>state.AdminMenuBarSlice);
+
+  useEffect(()=>{
+    if(localStorage.getItem("nimda"))
+    {
+      disp(isAdminLoggedIn());
+    }
+  },[])
 
 
   return (
@@ -15,7 +26,7 @@ const Header = () => {
     </button>
     <div className="collapse navbar-collapse" id="collapsibleNavbar">
       {
-        localStorage.getItem("nimda") ? <ul className="navbar-nav">
+        check ? <ul className="navbar-nav">
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/dashboard">Dashboard</NavLink>
         </li>
@@ -35,6 +46,9 @@ const Header = () => {
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/setting">Setting</NavLink>
+        </li>
+        <li className="nav-item">
+          <NavLink className="nav-link" to="/admin/map">Map</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/admin/users">Users</NavLink>

@@ -8,6 +8,7 @@ const Slider = () => {
     let [images, setImages] = useState([]);
     useEffect(()=>{
         axios.get(`${API}/slider`).then(response=>{
+            console.log(response.data);
             let data = [];
             response.data.forEach(value=>{
                 let obj = { url : `${PATH}/slider/${value.image}` }

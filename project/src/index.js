@@ -6,11 +6,20 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 
 import { Provider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import CartSlice from './redux/CartSlice';
+import MenuBarSlice from './redux/MenuBarSlice';
+import AdminMenuBarSlice from './redux/AdminMenuBarSlice'
+
+let rootReducer = combineReducers({
+  CartSlice,
+  MenuBarSlice,
+  AdminMenuBarSlice
+})
+
 
 let store = configureStore({
-  reducer : CartSlice
+  reducer : rootReducer
 })
 
 

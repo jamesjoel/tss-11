@@ -3,9 +3,12 @@ import { useFormik } from 'formik'
 import axios from 'axios'
 import { API } from '../../../util/API'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { isAdminLoggedIn } from '../../../redux/AdminMenuBarSlice'
 
 const Login = () => {
     let navigate = useNavigate();
+    let disp = useDispatch();
 
     useEffect(()=>{
         if(localStorage.getItem("nimda"))
@@ -27,6 +30,7 @@ const Login = () => {
                 //console.log(response.data);
                 if(response.data.success==true)
                 {
+                    disp(isAdminLoggedIn())
                     localStorage.setItem("nimda", response.data.token);
                     navigate("/admin/dashboard");
                 }

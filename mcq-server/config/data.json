@@ -1,0 +1,227 @@
+[
+    {
+        "id" : 1,
+        "que" : "Full Form of HTML",
+        "ans1" : "Hyper Markup Language",
+        "ans2" : "Hyper Text Markup Language",
+        "ans3" : "Hyper Type Markup Language",
+        "ans4" : "Http Text Markup Language",
+        "correct_ans" : "ans2"
+    },
+    {
+        "id" : 2,
+        "que" : "Full Form of CSS",
+        "ans1" : "Cascading Style Soruce",
+        "ans2" : "Casc Style Soruce",
+        "ans3" : "Cascading Style Sheet",
+        "ans4" : "Cascading Soruce Sheet",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 3,
+        "que" : "when ES-6 Introduce",
+        "ans1" : "2014",
+        "ans2" : "2016",
+        "ans3" : "2017",
+        "ans4" : "2015",
+        "correct_ans" : "ans4"
+    },
+    {
+        "id" : 4,
+        "que" : "when ES-6 Introduce",
+        "ans1" : "2014",
+        "ans2" : "2016",
+        "ans3" : "2017",
+        "ans4" : "2015",
+        "correct_ans" : "ans4"
+    },
+    {
+        "id" : 5,
+        "que" : "ES-6 Stand For",
+        "ans1" : "ECAM-Script 6",
+        "ans2" : "JavaScript 6",
+        "ans3" : "JavaScript",
+        "ans4" : "ECAM-Script",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 6,
+        "que" : "How Many Loops in JS",
+        "ans1" : "9",
+        "ans2" : "8",
+        "ans3" : "3",
+        "ans4" : "4",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 7,
+        "que" : "Biggest Heading Tag",
+        "ans1" : "<h3>",
+        "ans2" : "<h1>",
+        "ans3" : "<h6>",
+        "ans4" : "<h>",
+        "correct_ans" : "ans2"
+    },
+    {
+        "id" : 8,
+        "que" : "Image tag attributes is ",
+        "ans1" : "href",
+        "ans2" : "title",
+        "ans3" : "type",
+        "ans4" : "src",
+        "correct_ans" : "ans4"
+    },
+    {
+        "id" : 9,
+        "que" : "How Many Higher Order Function in ES-6",
+        "ans1" : "3",
+        "ans2" : "5",
+        "ans3" : "1",
+        "ans4" : "4",
+        "correct_ans" : "ans4"
+    },
+    {
+        "id" : 10,
+        "que" : "Which one is not a Loop",
+        "ans1" : "if",
+        "ans2" : "map",
+        "ans3" : "forEach",
+        "ans4" : "for",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 11,
+        "que" : "What is Mongoose",
+        "ans1" : "ORM",
+        "ans2" : "ODM",
+        "ans3" : "MVC",
+        "ans4" : "MMVC",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 12,
+        "que" : "When NodeJs Introduce",
+        "ans1" : "2006",
+        "ans2" : "2007",
+        "ans3" : "2008",
+        "ans4" : "2009",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 13,
+        "que" : "When React Introduce",
+        "ans1" : "2012",
+        "ans2" : "2010",
+        "ans3" : "2011",
+        "ans4" : "2013",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 14,
+        "que" : "ReactJs is a ",
+        "ans1" : "Framework",
+        "ans2" : "Library",
+        "ans3" : "Database",
+        "ans4" : "Structure",
+        "correct_ans" : "ans2"
+    },
+    {
+        "id" : 15,
+        "que" : "Which one is Not a Hook in React",
+        "ans1" : "axios",
+        "ans2" : "useState",
+        "ans3" : "useEffect",
+        "ans4" : "useFormik",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 16,
+        "que" : "How to get mongodb db data by mongoose",
+        "ans1" : ".create",
+        "ans2" : ".get",
+        "ans3" : ".find",
+        "ans4" : ".findAll",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 17,
+        "que" : "Which one is a DOM Event",
+        "ans1" : "useState",
+        "ans2" : "axios",
+        "ans3" : "onContextMenu",
+        "ans4" : "useEffect",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 18,
+        "que" : "CRUD Stand For",
+        "ans1" : "Component React Update Delete",
+        "ans2" : "Create React Update Delete",
+        "ans3" : "Create Retrice Update Delete",
+        "ans4" : "Create Redux Update Delete",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 19,
+        "que" : "MVC Stand for",
+        "ans1" : "Cotroller Model View",
+        "ans2" : "Component Model View",
+        "ans3" : "Controller Meta View",
+        "ans4" : "Compoent Meta View",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 20,
+        "que" : "What is the use of useRef Hook",
+        "ans1" : "create a state object",
+        "ans2" : "getting data from page load",
+        "ans3" : "getting data form a element",
+        "ans4" : "its a condition",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 21,
+        "que" : "Diffrenct B/W forEach and map Function",
+        "ans1" : "both are same",
+        "ans2" : "both are loop",
+        "ans3" : "forEach not returning array",
+        "ans4" : "map not returing array",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 22,
+        "que" : "Which one is not default/predefined Hook in React",
+        "ans1" : "useState",
+        "ans2" : "useRef",
+        "ans3" : "useFormik",
+        "ans4" : "useContext",
+        "correct_ans" : "ans3"
+    },
+    {
+        "id" : 23,
+        "que" : "Which is Currect version of Bootstrap",
+        "ans1" : "v5",
+        "ans2" : "v4",
+        "ans3" : "v6",
+        "ans4" : "v7",
+        "correct_ans" : "ans1"
+    },
+    {
+        "id" : 24,
+        "que" : "Which one is crrect way to write inline css in React",
+        "ans1" : "style='property:value'",
+        "ans2" : "style={'property':value}",
+        "ans3" : "style={{'property':value}}",
+        "ans4" : "style={{property:'value'}}",
+        "correct_ans" : "ans4"
+    },
+    {
+        "id" : 25,
+        "que" : "JSX stand for",
+        "ans1" : "Java Script Extension",
+        "ans2" : "ES-6 Extension",
+        "ans3" : "Java Extension",
+        "ans4" : "JSON Extension",
+        "correct_ans" : "ans1"
+    }
+]
