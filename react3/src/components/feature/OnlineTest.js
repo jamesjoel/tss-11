@@ -1,11 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import axios from 'axios'
+import { useDispatch } from 'react-redux'
+import { save } from '../../redux/ResultSlice'
 
 const OnlineTest = () => {
+
+    let disp = useDispatch();
+
+    let btn1 = useRef();
+    let btn2 = useRef();
+    let btn3 = useRef();
+    let btn4 = useRef();
+
+
+
     let [startTest, setStartTest] = useState(false);
     let [numArr, setNumArr] = useState([]);
     let [data, setData] = useState({});
     let [count, setCount] = useState(1);
+    let [ansData, setAnsData] = useState([]);
+    let [button, setButton] = useState(true);
+    let [tempObj, setTempObj] = useState({});
+
 
     let starttest = ()=>{
         axios.get("http://localhost:8080/api/question/getids").then(response=>{
@@ -13,7 +29,7 @@ const OnlineTest = () => {
             
             let url = "http://localhost:8080/api/question/quenum/"+response.data.ids[0];
             axios.get(url).then(response2=>{    
-                console.log(response2.data.data);
+                
                 setData(response2.data.data);
                 setStartTest(true);
             })
@@ -21,17 +37,37 @@ const OnlineTest = () => {
     }
 
     let nextque = ()=>{
-
+        if(count < 5){
+            setAnsData([...ansData, tempObj]);
+        btn1.current.checked = false;
+        btn2.current.checked = false;
+        btn3.current.checked = false;
+        btn4.current.checked = false;
+        setButton(true);
+        
         let url = "http://localhost:8080/api/question/quenum/"+numArr[count];
         
         
         axios.get(url).then(response2=>{    
-            console.log(response2.data.data)
+            // console.log(response2.data.data)
             setData(response2.data.data);
             setCount(count+1);
         })   
+        }
+        else{
+            // console.log(ansData);
+            setAnsData([...ansData, tempObj]);
+            disp(save(ansData));
+
+        }
+        
     }
 
+    let ans = (value, quenum)=>{
+        let obj = { ans : value, quenum : quenum };
+        setTempObj(obj);
+        setButton(false);
+    }
 
   return (
     <div className="container my-5">
@@ -54,13 +90,16 @@ const OnlineTest = () => {
                         </div>
                         <div className='card-body'>
                             <p><b>{data.que}</b></p>
-                            <p>Ans A : <input type='radio' />{data.ans1}</p>
-                            <p>Ans B : <input type='radio' />{data.ans2}</p>
-                            <p>Ans C : <input type='radio' />{data.ans3}</p>
-                            <p>Ans D : <input type='radio' />{data.ans4}</p>
+                            <p>Ans A : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='ans' ref={btn1} value='1' onChange={(event)=>ans(event.target.value, numArr[count])} />&nbsp;&nbsp;{data.ans1}</p>
+                            <br />
+                            <p>Ans B : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='ans' ref={btn2} value='2' onChange={(event)=>ans(event.target.value, numArr[count])} />&nbsp;&nbsp;{data.ans2}</p>
+                            <br />
+                            <p>Ans C : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='ans' ref={btn3} value='3' onChange={(event)=>ans(event.target.value, numArr[count])} />&nbsp;&nbsp;{data.ans3}</p>
+                            <br />
+                            <p>Ans D : &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type='radio' name='ans' ref={btn4} value='4' onChange={(event)=>ans(event.target.value, numArr[count])} />&nbsp;&nbsp;{data.ans4}</p>
                         </div>
                         <div className='card-footer'>
-                            <button className='btn btn-success' onClick={nextque}>Next</button>
+                            <button className='btn btn-success' disabled={button} onClick={nextque}>Next</button>
                         </div>
                     </div>
                     </div> : ''

@@ -4,11 +4,18 @@ import App from './App';
 
 import { BrowserRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import DemoSlice from './redux/DemoSlice';
+import ResultSlice from './redux/ResultSlice';
+
+// let rootReducer = combineReducers({
+//     DemoSlice, 
+//     ResultSlice
+
+// })
 
 let store = configureStore({
-    reducer : DemoSlice
+    reducer : ResultSlice
 })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
